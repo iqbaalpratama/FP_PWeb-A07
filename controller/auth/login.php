@@ -1,0 +1,4 @@
+<?
+    include './dbConnection.php';
+    
+?>
