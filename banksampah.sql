@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2021 at 05:26 PM
+-- Generation Time: Jan 06, 2021 at 06:38 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -34,6 +34,18 @@ CREATE TABLE `cabang_bank` (
   `b_alamat` varchar(100) NOT NULL,
   `b_telepon` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cabang_bank`
+--
+
+INSERT INTO `cabang_bank` (`b_id`, `k_id`, `b_nama`, `b_alamat`, `b_telepon`) VALUES
+(1, 1, 'keputih utara', 'Keputih Tegal Timur III A, Keputih, Kota Surabaya, Jawa Timur', '08123988756'),
+(2, 1, 'keputih selatan', 'Keputih Perintis I, Keputih, Kota Surabaya, Jawa Timur', '0846574636'),
+(3, 2, 'Gebang Putih utama', 'Kertajaya Indah Regency', '08123123123'),
+(4, 7, 'Klampisngasem 1', 'Jalan Klampis Ngasem Gang Tembusan, Klampis Ngasem, Kota Surabaya, Jawa Timur', '08123456788'),
+(5, 7, 'Klampisngasem 2', 'Jalan klampis Ngasem Gang Buntu, Klampis Ngasem, Kota Surabaya, Jawa Timur', '08123456789'),
+(6, 5, 'semolowaru', 'Semolowaru Utara IV, Semolowaru, Kota Surabaya, Jawa Timur', '08987765654');
 
 -- --------------------------------------------------------
 
@@ -70,6 +82,19 @@ CREATE TABLE `kelurahan` (
   `k_nama` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `kelurahan`
+--
+
+INSERT INTO `kelurahan` (`k_id`, `k_nama`) VALUES
+(1, 'Keputih'),
+(2, 'Gebang Putih'),
+(3, 'Menur Pumpungan'),
+(4, 'Nginden Jangkungan'),
+(5, 'Semolowaru'),
+(6, 'Medokan Semampir'),
+(7, 'Klampisngasem');
+
 -- --------------------------------------------------------
 
 --
@@ -83,6 +108,15 @@ CREATE TABLE `pengepul` (
   `p_alamat` varchar(100) DEFAULT NULL,
   `p_telp` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pengepul`
+--
+
+INSERT INTO `pengepul` (`p_id`, `p_username`, `p_password`, `p_alamat`, `p_telp`) VALUES
+(1, 'tono', '14d2d4119982cd6c68a566e523cb16ae', 'Keputih Tegal Timur II , Keputih, Kota Surabaya, Jawa Timur', '0888888888'),
+(2, 'rusnan', 'fe252322692917fda43f255920d5d383', 'Semolowaru Utara I, Semolowaru, Kota Surabaya, Jawa Timur', '08999999999'),
+(3, 'tito', '35056cf3019b02c1b7c4cbcfec9d39f0', 'Jalan klampis Ngasem Gang Buntu, Klampis Ngasem', '0877777777');
 
 -- --------------------------------------------------------
 
@@ -99,6 +133,17 @@ CREATE TABLE `sampah` (
   `sam_stok` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `sampah`
+--
+
+INSERT INTO `sampah` (`sam_id`, `sam_nama`, `sam_satuan`, `sam_hrg_jual`, `sam_hrg_beli`, `sam_stok`) VALUES
+(1, 'bungkus makanan', 'gram', 2000, 1000, 10),
+(2, 'bungkus detergen', 'gram', 1500, 500, 25),
+(3, 'botol plastik', 'pcs', 3000, 1500, 50),
+(4, 'gelas plastik', 'pcs', 2500, 1500, 15),
+(5, 'sampah organik', 'kilogram', 3000, 1000, 15);
+
 -- --------------------------------------------------------
 
 --
@@ -113,6 +158,18 @@ CREATE TABLE `staff` (
   `s_alamat` varchar(50) NOT NULL,
   `s_telepon` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `staff`
+--
+
+INSERT INTO `staff` (`s_id`, `b_id`, `s_nama`, `s_password`, `s_alamat`, `s_telepon`) VALUES
+(1, 1, 'berto', 'cb0b4891e61ccdd415a20252001fc265', 'mulyerejo', '08666666626'),
+(2, 2, 'bambang', 'a9711cbb2e3c2d5fc97a63e45bbe5076', 'KTT', '08765567765'),
+(3, 5, 'sigit', '223a0fa8f15933d622b3c7a13f186027', '', '0812332112'),
+(4, 6, 'bolang', '245a22c51827ae189dbf2c854cb159cb', 'semolowaru', '08978978978'),
+(5, 3, 'ruslan', '01e20b61d05bb6b42840997233579e08', 'gebang', '086876876'),
+(6, 4, 'purnomo', '7392ed5e575dc6fb7b4c98422673be72', '', '08473645473');
 
 -- --------------------------------------------------------
 
@@ -236,22 +293,34 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `cabang_bank`
+--
+ALTER TABLE `cabang_bank`
+  MODIFY `b_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `kelurahan`
+--
+ALTER TABLE `kelurahan`
+  MODIFY `k_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `pengepul`
 --
 ALTER TABLE `pengepul`
-  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sampah`
 --
 ALTER TABLE `sampah`
-  MODIFY `sam_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `sam_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `transaksi_pengepul`
@@ -271,11 +340,6 @@ ALTER TABLE `transaksi_user`
 ALTER TABLE `users`
   MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT;
 
-ALTER TABLE `kelurahan`
-  MODIFY `k_id` int(11) NOT NULL AUTO_INCREMENT;
-
-  ALTER TABLE `cabang_bank`
-  MODIFY `b_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
