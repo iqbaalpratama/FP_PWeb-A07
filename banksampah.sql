@@ -271,6 +271,11 @@ ALTER TABLE `transaksi_user`
 ALTER TABLE `users`
   MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT;
 
+ALTER TABLE `kelurahan`
+  MODIFY `k_id` int(11) NOT NULL AUTO_INCREMENT;
+
+  ALTER TABLE `cabang_bank`
+  MODIFY `b_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
