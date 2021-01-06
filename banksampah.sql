@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2021 at 06:38 PM
+-- Generation Time: Jan 07, 2021 at 12:47 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -216,6 +216,16 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`u_id`, `u_username`, `u_password`, `u_alamat`, `u_telp`, `u_foto`) VALUES
+(1, 'linda', 'eaf450085c15c3b880c66d0b78f2c041', 'KTT ', '0808080808', NULL),
+(2, 'tonny', '59af6334d3309ddeceb4f3ec3c31fa71', 'Keputih', '0897867564', NULL),
+(3, 'risa', '735c9c3675eaba16bfbec5913174067e', 'wisma permai', '0873737434', NULL),
+(4, 'rifanka', '64eb39894f68229d39d9051981fd0b9b', 'mulyorejo utara', '082323232323', NULL);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -338,7 +348,7 @@ ALTER TABLE `transaksi_user`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
