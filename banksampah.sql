@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2021 at 12:47 AM
+-- Generation Time: Jan 11, 2021 at 06:42 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -59,6 +59,22 @@ CREATE TABLE `detail_transaksi_pengepul` (
   `dtp_subtotal_ambil` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `detail_transaksi_pengepul`
+--
+
+INSERT INTO `detail_transaksi_pengepul` (`tp_id`, `sam_id`, `dtp_subtotal_ambil`) VALUES
+(3, 1, NULL),
+(3, 4, NULL),
+(10, 4, NULL),
+(9, 5, NULL),
+(1, 1, NULL),
+(2, 2, NULL),
+(3, 5, NULL),
+(6, 3, NULL),
+(7, 1, NULL),
+(13, 2, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -70,6 +86,24 @@ CREATE TABLE `detail_transaksi_user` (
   `sam_id` int(11) DEFAULT NULL,
   `dtu_subtotal_setor` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `detail_transaksi_user`
+--
+
+INSERT INTO `detail_transaksi_user` (`tu_id`, `sam_id`, `dtu_subtotal_setor`) VALUES
+(1, 2, NULL),
+(2, 3, NULL),
+(2, 2, NULL),
+(5, 3, NULL),
+(6, 5, NULL),
+(3, 4, NULL),
+(8, 2, NULL),
+(9, 4, NULL),
+(10, 3, NULL),
+(8, 2, NULL),
+(4, 3, NULL),
+(7, 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -185,6 +219,25 @@ CREATE TABLE `transaksi_pengepul` (
   `tp_ambil` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `transaksi_pengepul`
+--
+
+INSERT INTO `transaksi_pengepul` (`tp_id`, `p_id`, `s_id`, `tp_tanggal`, `tp_ambil`) VALUES
+(1, 2, 4, '2020-12-10', NULL),
+(2, 2, 1, '2020-12-12', NULL),
+(3, 2, 1, '2020-12-14', NULL),
+(4, 2, 1, '2020-12-16', NULL),
+(5, 2, 2, '2020-12-18', NULL),
+(6, 2, 6, '2021-01-20', NULL),
+(7, 2, 4, '2020-12-22', NULL),
+(8, 2, 3, '2020-12-24', NULL),
+(9, 1, 6, '2020-11-18', NULL),
+(10, 1, 5, '2020-11-25', NULL),
+(11, 1, 5, '2020-12-02', NULL),
+(12, 1, 1, '2020-12-16', NULL),
+(13, 1, 4, '2020-12-30', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -199,6 +252,22 @@ CREATE TABLE `transaksi_user` (
   `tu_tanggal` date DEFAULT NULL,
   `tu_setor` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `transaksi_user`
+--
+
+INSERT INTO `transaksi_user` (`tu_id`, `u_id`, `b_id`, `s_id`, `tu_tanggal`, `tu_setor`) VALUES
+(1, 2, 1, 4, '2020-12-11', NULL),
+(2, 3, 2, 6, '2020-11-11', NULL),
+(3, 2, 5, 3, '2020-11-14', NULL),
+(4, 4, 3, 3, '2020-11-21', NULL),
+(5, 1, 1, 4, '2020-12-06', NULL),
+(6, 1, 3, 1, '2020-11-02', NULL),
+(7, 2, 4, 4, '2020-11-05', NULL),
+(8, 4, 3, 1, '2020-11-13', NULL),
+(9, 2, 3, 3, '2020-11-03', NULL),
+(10, 3, 5, 2, '2020-12-12', NULL);
 
 -- --------------------------------------------------------
 
@@ -336,13 +405,13 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT for table `transaksi_pengepul`
 --
 ALTER TABLE `transaksi_pengepul`
-  MODIFY `tp_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `tp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `transaksi_user`
 --
 ALTER TABLE `transaksi_user`
-  MODIFY `tu_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `tu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
