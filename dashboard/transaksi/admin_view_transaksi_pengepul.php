@@ -1,15 +1,15 @@
 <?php
-	// require '../../controller/dashboard/dbConnection.php';
-	// $all_TransaksiPengepul = getAllPengepul("SELECT 't.tp_id', 'p.p_username', 's.s_nama', 't.tp_tanggal', 't.tp_ambil' FROM transaksi_pengepul t, pengepul p, staff s where 'p.p_id' = 't.p_id' AND 't.s_id' = 's.s_id'");
+	require '../../controller/dashboard/dbConnection.php';
+	$all_TransaksiPengepul = getAllPengepul("SELECT 't.tp_id', 'p.p_username', 's.s_nama', 't.tp_tanggal', 't.tp_ambil' FROM transaksi_pengepul t, pengepul p, staff s where 'p.p_id' = 't.p_id' AND 't.s_id' = 's.s_id'");
 ?>
 
 <?php require_once("../format/head_format_start.php"); ?>
 	<title>Transaksi Pengepul</title>
 <?php require_once("../format/head_format_end.php"); ?>
 <body>
-	<?php
-		// session_start();
-		// if(isset($_SESSION['username'])){
+	<?php 
+		session_start();
+		if(isset($_SESSION['username'])){
 	?>
     <!-- WRAPPER -->
 	<div id="wrapper">
@@ -52,7 +52,8 @@
 				");
 				echo "<tbody>";
 				// ambil record
-				while($transaksi = mysqli_fetch_array($all_TransaksiPengepul)){
+				while($transaksi = mysqli_fetch_array($all_TransaksiPengepul))
+				{ 
 			?>
 			<tr>
 				<td><?php echo $transaksi['t.tp_id']; ?></td>
@@ -117,21 +118,24 @@
 									<div class="modal-footer">
 										<button type="submit" class="btn btn-primary">Update</button>
 									</div>
-								<?php 
-									}
+								<?php  
+									} 
 								?> 
 							</form>
 						</div>
 					</div>
 				</div>
 			</tr>
+			<?php 
+				}
+			?>
 		</div>
 	</div>		
-	<?php
-        // } else {
-        //     // $_SESSION["gagal"] = "Belum melakukan login";
-        //     header('Location: ../dashboard.php');
-        // }
-    ?>
+	<?php 
+		} else {
+            $_SESSION["gagal"] = "Belum melakukan login";
+            header('Location: ../dashboard.php');
+        } 
+    ?> 
 </body>
 </html>
