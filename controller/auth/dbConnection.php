@@ -1,12 +1,12 @@
 <?php
 
-    $db = mysqli_connect("localhost", "root", "", "banksampah");
+    $db = mysqli_connect("localhost", "root", "", "bank_sampah");
     if( !$db ) {
         die("Gagal terhubung dengan database: " . mysqli_connect_error());
     }
 
     function dbClose() {
-        mysqli_close(mysqli_connect("localhost", "root", "", "banksampah"));
+        mysqli_close(mysqli_connect("localhost", "root", "", "bank_sampah"));
     }
 
     function loginStaff($request) {
@@ -75,9 +75,9 @@
         // Upload gambar
         $filename = md5($temporaryFile).'.'.$extension;
         // echo($filename);
-        move_uploaded_file($temporaryFile, '../upload/'.$filename);
+        move_uploaded_file($temporaryFile, '../../assets/upload/'.$filename);
 
-        mysqli_query($koneksi,"INSERT INTO users(u_username, u_password, u_alamat, u_telp, u_foto) VALUES('$username','$password', '$alamat', '$no_telp', '$filename')");
+        mysqli_query($db,"INSERT INTO users(u_username, u_password, u_alamat, u_telp, u_foto) VALUES('$username','$password', '$alamat', '$no_telp', '$filename')");
         $status = mysqli_affected_rows($db);
 
         dbclose();
