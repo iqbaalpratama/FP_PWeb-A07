@@ -41,7 +41,7 @@
         $alamat=$_POST['alamat'];
         $no_telp=$_POST['no_telp'];
         $bank_id=$_POST['bank_id'];
-        mysqli_query($koneksi,"INSERT INTO user(s_nama, s_password, s_alamat, s_telepon, s_id) VALUES('$username','$password', '$alamat', '$no_telp', '$id_bank')");
+        mysqli_query($koneksi,"INSERT INTO staff(s_nama, s_password, s_alamat, s_telepon, s_id) VALUES('$username','$password', '$alamat', '$no_telp', '$id_bank')");
         $status = mysqli_affected_rows($db);
 
         dbclose();
