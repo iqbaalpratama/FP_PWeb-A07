@@ -15,25 +15,7 @@
 	<div id="wrapper">
 		<?php require_once("../format/navbar.php"); ?>
 		<!-- LEFT SIDEBAR -->
-		<div id="sidebar-nav" class="sidebar">
-			<div class="sidebar-scroll">
-				<nav>
-					<ul class="nav">
-						<!-- dashboard -->
-						<li><a href="#" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						<!-- view user  -->
-						<li><a href="#" class=""><i class="lnr lnr-code"></i> <span>Daftar User</span></a></li>
-						<!-- view pengepul -->
-						<li><a href="#" class=""><i class="lnr lnr-chart-bars"></i> <span>Daftar Pengepul</span></a></li>
-						<!--  view transaksi user -->
-						<li><a href="../admin_view_transaksi_user.php" class=""><i class="lnr lnr-alarm"></i> <span>Transaksi User</span></a></li>
-						<!-- view transaksi pengepul -->
-						<li><a href="../admin_view_transaksi_pengepul.php" class=""><i class="lnr lnr-cog"></i> <span>Transaksi Pengepul</span></a></li>
-						
-					</ul>
-				</nav>
-			</div>
-		</div>
+		<?php require_once("../format/sidebar_admin.php"); ?>
 		<!-- END LEFT SIDEBAR -->
 		<div class='tableContainer'>
 			<?php        
