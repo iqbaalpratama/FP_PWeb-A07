@@ -18,9 +18,9 @@
 		<?php require_once("../format/sidebar_admin.php"); ?>
 		<!-- END LEFT SIDEBAR -->
 		<div class='tableContainer'>
-			<?php        
-				echo "<table class='table table-striped table-hover table-scroll'>";
-				echo("
+			       
+				<table class='table table-striped table-hover table-scroll'>
+				
 				<thead>
 					<tr>
 						<th>Transaksi ID</th>
@@ -30,10 +30,10 @@
 						<th>Total Ambil</th>
 					</tr>
 				</thead>
-				");
-				echo "<tbody>";
+				<tbody>
+			<?php 
 				// ambil record
-				while($transaksi = mysqli_fetch_array($all_TransaksiPengepul))
+				while($transaks = mysqli_fetch_array($all_TransaksiPengepul))
 				{ 
 			?>
 			<tr>
