@@ -134,7 +134,7 @@
 	<?php 
 		} else {
             $_SESSION["gagal"] = "Belum melakukan login";
-            header('Location: ../dashboard.php');
+            header('Location: ../index.php');
         } 
     ?> 
 </body>
