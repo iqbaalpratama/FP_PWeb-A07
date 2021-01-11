@@ -20,6 +20,15 @@
 
         return $allpengepul;
     }
+
+    function getAllUsers($query){
+        global $db;
+        $alluser = mysqli_query($db, $query);
+        dbClose();
+
+        return $alluser;
+    }
+    
     function dbClose() {
         mysqli_close(mysqli_connect("localhost", "root", "", "banksampah"));
     }   
