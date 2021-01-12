@@ -1,6 +1,6 @@
 <?php
 	require '../../controller/dashboard/dbConnection.php';
-	$all_TransaksiUser = getAllUsers("SELECT 't.tp_id', 'u.u_username', 's.s_nama', 't.tu_tanggal', 't.tu_setor' FROM transaksi_user t, users u, staff s where 'u.p_id' = 't.u_id' AND 't.s_id' = 's.s_id'");
+	$all_TransaksiUser = getAllUsers("SELECT t.tu_id, u.u_username, s.s_nama, t.tu_tanggal, t.tu_setor FROM transaksi_user t, users u, staff s where u.u_id = t.u_id AND t.s_id = s.s_id ORDER BY t.tu_id");
 ?>
 
 <?php require_once("../format/head_format_start.php"); ?>
@@ -47,19 +47,19 @@
 										{ 
 									?>
 									<tr>
-										<td><?php echo $transaksi['t.tu_id']; ?></td>
-										<td><?php echo $transaksi['u.u_username']; ?></td>
-										<td><?php echo $transaksi['s.s_nama']; ?></td>
-										<td><?php echo $transaksi['t.tu_tanggal']; ?></td>
-										<td><?php echo $transaksi['t.tu_setor']; ?></td>
-										<form method='POST' action='../../controller/dashboard/deleteFunctionTransaksiPengepul.php'>
-											<input name='userId' value=<?php echo $transaksi['t.tu_id']; ?> hidden>
+										<td><?php echo $transaksi['tu_id']; ?></td>
+										<td><?php echo $transaksi['u_username']; ?></td>
+										<td><?php echo $transaksi['s_nama']; ?></td>
+										<td><?php echo $transaksi['tu_tanggal']; ?></td>
+										<td><?php echo $transaksi['tu_setor']; ?></td>
+										<form method='POST' action='../../controller/dashboard/deleteFunctionTransaksiUser.php'>
+											<input name='userId' value=<?php echo $transaksi['tu_id']; ?> hidden>
 											<td><button type='submit' class='btn btn-error'>
 												<i class='fa fa-trash' aria-hidden='true'> Hapus</i>
 											</button></td>
 										</form>
 										<td class='tableItem'>
-										<a class="btn btn btn-primary" href="#modalUpdate-<?php echo $transaksi['t.tu_id'];?>">
+										<a class="btn btn btn-primary" href="#modalUpdate-<?php echo $transaksi['tu_id'];?>">
 											<i class='fa fa-pencil' aria-hidden='true'> Update	
 											</i>
 										</a>

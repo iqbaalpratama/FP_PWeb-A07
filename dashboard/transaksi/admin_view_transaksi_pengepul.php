@@ -1,6 +1,6 @@
 <?php
 	require '../../controller/dashboard/dbConnection.php';
-	$all_TransaksiPengepul = getAllPengepul("SELECT 't.tp_id', 'p.p_username', 's.s_nama', 't.tp_tanggal', 't.tp_ambil' FROM transaksi_pengepul t, pengepul p, staff s where 'p.p_id' = 't.p_id' AND 't.s_id' = 's.s_id'");
+	$all_TransaksiPengepul = getAllPengepul("SELECT t.tp_id, p.p_username, s.s_nama, t.tp_tanggal, t.tp_ambil FROM transaksi_pengepul t, pengepul p, staff s where p.p_id = t.p_id AND t.s_id = s.s_id ORDER BY t.tp_id");
 ?>
 
 <?php require_once("../format/head_format_start.php"); ?>
@@ -48,19 +48,19 @@
 										{ 
 									?>
 									<tr>
-										<td><?php echo $transaksi['t.tp_id']; ?></td>
-										<td><?php echo $transaksi['p.p_username']; ?></td>
-										<td><?php echo $transaksi['s.s_nama']; ?></td>
-										<td><?php echo $transaksi['t.tp_tanggal']; ?></td>
-										<td><?php echo $transaksi['t.tp_ambil']; ?></td>
+										<td><?php echo $transaksi['tp_id']; ?></td>
+										<td><?php echo $transaksi['p_username']; ?></td>
+										<td><?php echo $transaksi['s_nama']; ?></td>
+										<td><?php echo $transaksi['tp_tanggal']; ?></td>
+										<td><?php echo $transaksi['tp_ambil']; ?></td>
 										<form method='POST' action='../../controller/dashboard/deleteFunctionTransaksiPengepul.php'>
-											<input name='userId' value=<?php echo $transaksi['t.tp_id']; ?> hidden>
+											<input name='userId' value=<?php echo $transaksi['tp_id']; ?> hidden>
 											<td><button type='submit' class='btn btn-error'>
 												<i class='fa fa-trash' aria-hidden='true'> Hapus</i>
 											</button></td>
 										</form>
 										<td class='tableItem'>
-										<a class="btn btn btn-primary" href="#modalUpdate-<?php echo $transaksi['t.tp_id'];?>">
+										<a class="btn btn btn-primary" href="#modalUpdate-<?php echo $transaksi['tp_id'];?>">
 											<i class='fa fa-pencil' aria-hidden='true'> Update	
 											</i>
 										</a>

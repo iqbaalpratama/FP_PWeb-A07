@@ -1,12 +1,12 @@
 <?php
 
-    $db = mysqli_connect("localhost", "root", "", "bank_sampah");
+    $db = mysqli_connect("localhost", "root", "", "banksampah");
     if( !$db ) {
         die("Gagal terhubung dengan database: " . mysqli_connect_error());
     }
 
     function dbClose() {
-        mysqli_close(mysqli_connect("localhost", "root", "", "bank_sampah"));
+        mysqli_close(mysqli_connect("localhost", "root", "", "banksampah"));
     }
 
     function loginStaff($request) {
@@ -84,4 +84,25 @@
         return $status;
     }
 
+    function deleteTransaksiUser($request){
+        global $db;
+
+        $ids = $_POST['tu_id'];
+
+        mysqli_query($db, "DELETE FROM transaksi_user WHERE tu_id = $ids");
+        $status = mysqli_affected_rows($db);
+        dbclose();
+        return $status;
+    }
+
+    function deleteTransaksiPengepul($request){
+        global $db;
+
+        $ids = $_POST['tp_id'];
+
+        mysqli_query($db, "DELETE FROM transaksi_pengepul WHERE tu_id = $ids");
+        $status = mysqli_affected_rows($db);
+        dbclose();
+        return $status;
+    }
 ?>
