@@ -53,7 +53,7 @@
 										<td><?php echo $transaksi['tu_tanggal']; ?></td>
 										<td><?php echo $transaksi['tu_setor']; ?></td>
 										<form method='POST' action='../../controller/dashboard/deleteFunctionTransaksiUser.php'>
-											<input name='userId' value=<?php echo $transaksi['tu_id']; ?> hidden>
+											<input name='tuid' value=<?php echo $transaksi['tu_id']; ?> hidden>
 											<td><button type='submit' class='btn btn-error'>
 												<i class='fa fa-trash' aria-hidden='true'> Hapus</i>
 											</button></td>

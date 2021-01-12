@@ -54,7 +54,7 @@
 										<td><?php echo $transaksi['tp_tanggal']; ?></td>
 										<td><?php echo $transaksi['tp_ambil']; ?></td>
 										<form method='POST' action='../../controller/dashboard/deleteFunctionTransaksiPengepul.php'>
-											<input name='userId' value=<?php echo $transaksi['tp_id']; ?> hidden>
+											<input name='tpid' value=<?php echo $transaksi['tp_id']; ?> hidden>
 											<td><button type='submit' class='btn btn-error'>
 												<i class='fa fa-trash' aria-hidden='true'> Hapus</i>
 											</button></td>
