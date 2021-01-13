@@ -20,7 +20,19 @@
 	<div id="wrapper">
 		<?php require_once("../../dashboard/format/navbar.php"); ?>
 		<!-- LEFT SIDEBAR -->
-		<?php require_once("../../dashboard/format/sidebar_admin.php"); ?>
+		<div id="sidebar-nav" class="sidebar">
+			<div class="sidebar-scroll">
+				<nav>
+					<ul class="nav">
+						<!-- dashboard -->
+						<li><a href="../index.php" class=""><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<!--  view transaksi user -->
+						<li><a href="transaksi/view_transaksi_user.php" class="active"><i class="lnr lnr-alarm"></i> <span>Transaksi User</span></a></li>
+						
+					</ul>
+				</nav>
+			</div>
+		</div>
 		<!-- END LEFT SIDEBAR -->
 		<div class="main">
 			<!-- MAIN CONTENT -->

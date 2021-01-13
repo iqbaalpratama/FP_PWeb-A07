@@ -7,9 +7,11 @@
 	<title>Transaksi Pengepul</title>
 <?php require_once("../format/head_format_end.php"); ?>
 <body>
-	<?php
-		session_start();
-		if(isset($_SESSION['username'])){
+<?php
+		if(isset($_SESSION['role']))
+		{
+			if($_SESSION['role'] == "Staff")
+			{
 	?>
     <!-- WRAPPER -->
 	<div id="wrapper">
@@ -114,9 +116,17 @@
 		</div>
 	</div>
 	<?php
-		} else {
+		}
+		else
+		{
+            $_SESSION["gagal"] = "Belum punya role staff";
+            header('Location: ../auth/login-staff.php');
+		}
+	}
+	else
+		{
             $_SESSION["gagal"] = "Belum melakukan login";
-            header('Location: ../index.php');
+            header('Location: ../auth/login-staff.php');
         }
 	?>
 <?php require_once("../format/footer.php"); ?>

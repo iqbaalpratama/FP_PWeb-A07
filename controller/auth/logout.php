@@ -3,7 +3,7 @@
     session_start();
 
     session_destroy();
-    header('Location: ../../dashboard/index.php');
+    header('Location: ../../dashboard/auth/login-user.php');
 
     exit();
 ?>

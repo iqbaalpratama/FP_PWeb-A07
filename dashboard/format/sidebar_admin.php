@@ -33,6 +33,7 @@
 								}
 								else
 								{?>
+								<li><a href="../index.php" class=""><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
 									<li><a href="../../dashboard_user/transaksi/view_transaksi_user.php"><i class="fas fa-shopping-cart"></i> <span>Transaksi User</span></a></li>
 								<?php
 								}
