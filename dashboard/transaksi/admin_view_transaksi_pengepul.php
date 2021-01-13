@@ -1,5 +1,6 @@
 <?php
 	require '../../controller/dashboard/dbConnection.php';
+	session_start();
 	$all_TransaksiPengepul = getAllPengepul("SELECT p.p_id, t.tp_id, p.p_username, s.s_id, s.s_nama, t.tp_tanggal, t.tp_ambil FROM transaksi_pengepul t, pengepul p, staff s where p.p_id = t.p_id AND t.s_id = s.s_id ORDER BY t.tp_id");
 ?>
 

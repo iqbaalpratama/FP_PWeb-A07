@@ -1,5 +1,6 @@
 <?php
 	require '../../controller/dashboard/dbConnection.php';
+	session_start();
 	$all_TransaksiUser = getAllUsers("SELECT t.tu_id,u.u_id, u.u_username,s.s_id, s.s_nama, t.tu_tanggal, t.tu_setor FROM transaksi_user t, users u, staff s where u.u_id = t.u_id AND t.s_id = s.s_id ORDER BY t.tu_id");
 ?>
 
@@ -10,7 +11,7 @@
 <?php
 		if(isset($_SESSION['role']))
 		{
-			if($_SESSION['role'] == "Staff")
+			if($_SESSION['role'] == 'Staff')
 			{
 	?>
     <!-- WRAPPER -->
@@ -48,7 +49,7 @@
 									<?php
 										// ambil record
 										while($transaksi = mysqli_fetch_array($all_TransaksiUser))
-										{ 
+										{
 									?>
 									<tr>
 										<td><?php echo $transaksi['tu_id']; ?></td>
@@ -103,7 +104,7 @@
 											</div>
 										</td>
 									</tr>
-									<?php 
+									<?php
 										}
 									?>
 								</div>
@@ -111,9 +112,9 @@
 						</div>
 					</div>
 				</div>
-			</div>	
+			</div>
 		</div>
-	</div>		
+	</div>
 	<?php
 		}
 		else

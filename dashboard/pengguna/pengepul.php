@@ -1,5 +1,6 @@
 <?php
 	require '../../controller/dashboard/dbConnection.php';
+	session_start();
 	$all_staff = getAll("SELECT * FROM pengepul");
 ?>
 
@@ -17,29 +18,7 @@
 	<!-- WRAPPER -->
 	<div id="wrapper">
 		<!-- NAVBAR -->
-		<nav class="navbar navbar-default navbar-fixed-top">
-			<div class="brand">
-				<a href="index.html">
-					<img src="../../assets/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo">
-				</a>
-			</div>
-			<div class="container-fluid">
-				<div class="navbar-btn">
-					<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
-				</div>
-				<div id="navbar-menu">
-					<ul class="nav navbar-nav navbar-right">
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="../../assets/img/user.png" class="img-circle" alt="Avatar"> <span>Samuel</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
-							<ul class="dropdown-menu">
-								<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
-								<li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
+		<?php require_once("../format/navbar.php"); ?>
 		<!-- END NAVBAR -->
 		<!-- LEFT SIDEBAR -->
 		<?php require_once("../format/sidebar_admin.php"); ?>
@@ -62,12 +41,12 @@
 									<table class="table table-hover">
 										<thead>
 											<tr>
-												<th>p_id</th>
-												<th>p_username</th>
-												<th>p_alamat</th>
-												<th>p_telepon</th>
-												<th>edit</th>
-												<th>hapus</th>
+												<th>ID Pengepul</th>
+												<th>Nama</th>
+												<th>Alamat</th>
+												<th>Telepon</th>
+												<th>Edit</th>
+												<th>Hapus</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -80,7 +59,7 @@
 												<td><?php echo $staff['p_alamat']; ?></td>
 												<td><?php echo $staff['p_telp']; ?></td>
 												<td>
-													<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalUpdate-<?php echo $staff['p_id']; ?>">Edit Staff</button>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalUpdate-<?php echo $staff['p_id']; ?>">Edit</button>
 													<div class="modal fade" id="modalUpdate-<?php echo $staff['p_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="modalUpdateLabel" aria-hidden="true">
 														<div class="modal-dialog" role="document">
 															<div class="modal-content">
@@ -119,7 +98,7 @@
 														<div class="input-group">
 															<input class="form-control" type="text" name="p_id" id="p_id" value="<?php echo $staff['p_id']; ?>" style="display: none;">
 														</div>
-														<button class="btn btn-danger" type="submit">Delete Staff</button>
+														<button class="btn btn-danger" type="submit">Delete</button>
 													</form>
 												</td>
 											</tr>

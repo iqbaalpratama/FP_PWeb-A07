@@ -1,5 +1,6 @@
 <?php
 	require '../../controller/dashboard/dbConnection.php';
+	session_start();
 	$all_staff = getAll("SELECT * FROM sampah");
 ?>
 
@@ -17,29 +18,7 @@
 	<!-- WRAPPER -->
 	<div id="wrapper">
 		<!-- NAVBAR -->
-		<nav class="navbar navbar-default navbar-fixed-top">
-			<div class="brand">
-				<a href="index.html">
-					<img src="../../assets/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo">
-				</a>
-			</div>
-			<div class="container-fluid">
-				<div class="navbar-btn">
-					<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
-				</div>
-				<div id="navbar-menu">
-					<ul class="nav navbar-nav navbar-right">
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="../../assets/img/user.png" class="img-circle" alt="Avatar"> <span>Samuel</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
-							<ul class="dropdown-menu">
-								<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
-								<li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
+		<?php require_once("../format/navbar.php"); ?>
 		<!-- END NAVBAR -->
 		<!-- LEFT SIDEBAR -->
 		<?php require_once("../format/sidebar_admin.php"); ?>
@@ -56,19 +35,19 @@
 							<!-- TABLE HOVER -->
 							<div class="panel panel-headline">
 								<div class="panel-heading">
-									<h3 class="panel-title">Daftar Staff</h3>
+									<h3 class="panel-title">Daftar Sampah</h3>
 								</div>
 								<div class="panel-body">
 									<table class="table table-hover">
 										<thead>
 											<tr>
-												<th>sam_id</th>
-												<th>sam_nama</th>
-												<th>sam_satuan</th>
-												<th>sam_hrg_jual</th>
-												<th>sam_hrg_beli</th>
-                                                <th>sam_stok</th>
-                                                <th>edit</th>
+												<th>ID Sampah</th>
+												<th>Nama Sampah</th>
+												<th>Satuan</th>
+												<th>Harga Jual</th>
+												<th>Harga Beli</th>
+                                                <th>Sampah Stok</th>
+                                                <th>Edit</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -80,9 +59,10 @@
 												<td><?php echo $staff['sam_nama']; ?></td>
 												<td><?php echo $staff['sam_satuan']; ?></td>
 												<td><?php echo $staff['sam_hrg_jual']; ?></td>
+												<td><?php echo $staff['sam_stok']; ?></td>
 												<td><?php echo $staff['sam_hrg_beli']; ?></td>
 												<td>
-													<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalUpdate-<?php echo $staff['sam_id']; ?>">Edit Staff</button>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalUpdate-<?php echo $staff['sam_id']; ?>">Edit</button>
 													<div class="modal fade" id="modalUpdate-<?php echo $staff['sam_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="modalUpdateLabel" aria-hidden="true">
 														<div class="modal-dialog" role="document">
 															<div class="modal-content">

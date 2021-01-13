@@ -1,5 +1,6 @@
 <?php
 	require '../../controller/dashboard/dbConnection.php';
+	session_start();
 	$all_staff = getAll("SELECT * FROM users");
 ?>
 
@@ -17,29 +18,7 @@
 	<!-- WRAPPER -->
 	<div id="wrapper">
 		<!-- NAVBAR -->
-		<nav class="navbar navbar-default navbar-fixed-top">
-			<div class="brand">
-				<a href="index.html">
-					<img src="../../assets/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo">
-				</a>
-			</div>
-			<div class="container-fluid">
-				<div class="navbar-btn">
-					<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
-				</div>
-				<div id="navbar-menu">
-					<ul class="nav navbar-nav navbar-right">
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="../../assets/img/user.png" class="img-circle" alt="Avatar"> <span>Samuel</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
-							<ul class="dropdown-menu">
-								<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
-								<li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
+		<?php require_once("../format/navbar.php"); ?>
 		<!-- END NAVBAR -->
 		<!-- LEFT SIDEBAR -->
 		<?php require_once("../format/sidebar_admin.php"); ?>
@@ -62,10 +41,11 @@
 									<table class="table table-hover">
 										<thead>
 											<tr>
-												<th>u_id</th>
-												<th>u_username</th>
-												<th>u_alamat</th>
-												<th>u_telp</th>
+												<th>ID User</th>
+												<th>Nama User</th>
+												<th>Alamat</th>
+												<th>No Telepon</th>
+												<th>Foto</th>
 											</tr>
 										</thead>
 										<tbody>

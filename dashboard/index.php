@@ -27,52 +27,11 @@
 	<div id="wrapper">
 		<!-- NAVBAR -->
 		<!-- NAVBAR -->
-        <nav class="navbar navbar-default navbar-fixed-top">
-			<div class="brand">
-				<a href="../index.php">
-					<img width=260px src="../../assets/img/Bank.png" alt="Klorofil Logo" class="img-responsive logo">
-				</a>
-			</div>
-			<div class="container-fluid">
-				<div class="navbar-btn">
-					<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
-				</div>
-				<div id="navbar-menu">
-					<ul class="nav navbar-nav navbar-right">
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="../../assets/img/user.png" class="img-circle" alt="Avatar"> <span>Samuel</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
-							<ul class="dropdown-menu">
-								<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
-								<li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
+        <?php require_once("format/navbar.php"); ?>
 <!-- END NAVBAR -->
 		<!-- END NAVBAR -->
 		<!-- LEFT SIDEBAR -->
-		<div id="sidebar-nav" class="sidebar">
-			<div class="sidebar-scroll">
-				<nav>
-					<ul class="nav">
-						<!-- dashboard -->
-						<li><a href="index.php" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						<li><a href="pengguna/staff.php" class="active"><i class="lnr lnr-home"></i> <span>Staff</span></a></li>
-						<!-- view user  -->
-						<li><a href="pengguna/user.php" class=""><i class="lnr lnr-code"></i> <span>Daftar User</span></a></li>
-						<!-- view pengepul -->
-						<li><a href="pengguna/pengepul.php" class=""><i class="lnr lnr-chart-bars"></i> <span>Daftar Pengepul</span></a></li>
-						<!--  view transaksi user -->
-						<li><a href="transaksi/admin_view_transaksi_user.php" class=""><i class="lnr lnr-alarm"></i> <span>Transaksi User</span></a></li>
-						<!-- view transaksi pengepul -->
-						<li><a href="transaksi/admin_view_transaksi_pengepul.php" class=""><i class="lnr lnr-cog"></i> <span>Transaksi Pengepul</span></a></li>
-											
-					</ul>
-				</nav>
-			</div>
-		</div>
+		<?php require_once("format/sidebar_admin.php"); ?>
 		<!-- END LEFT SIDEBAR -->
 		<!-- MAIN -->
 		<div class="main">
@@ -438,7 +397,7 @@
 		<div class="clearfix"></div>
 		<?php include('./format/footer.php')?>
 	</div>
-	
+
 	<script>
 	$(function() {
 		var data, options;
