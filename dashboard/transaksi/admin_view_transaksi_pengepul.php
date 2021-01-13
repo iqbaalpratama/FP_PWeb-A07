@@ -64,7 +64,7 @@
 											<i class='fa fa-pencil' aria-hidden='true'> Update	
 											</i>
 										</a>
-										<div class="modal" id="modalUpdate-<?php echo $transaksi['t.tp_id'];?>">
+										<div class="modal" id="modalUpdate-<?php echo $transaksi['tp_id'];?>">
 											<a href="#close" class="modal-overlay" aria-label="Close">
 											</a>
 											<div class="modal-container">

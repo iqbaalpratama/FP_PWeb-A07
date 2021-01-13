@@ -1,5 +1,5 @@
 <?php
-    include 'dbconnection.php';
+    include '../auth/dbConnection.php';
     session_start();
 
     if(updateGuest(isset($_POST['Update'])) > 0){
@@ -8,6 +8,6 @@
         $_SESSION["gagal"] = "Transaksi gagal diupdate";
     }
 
-    header('Location: ../../dashboard/transaksi/admin_view_transaksi_pengepul');
+    header('Location: ../../dashboard/transaksi/admin_view_transaksi_user.php');
     exit();
 ?>
