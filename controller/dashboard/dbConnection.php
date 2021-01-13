@@ -192,6 +192,20 @@
         return $status;
     }
     
+    function createTransaksiUser($request) {
+        global $db;
+
+        $u_id = $_POST['u_id'];
+        $b_id = $_POST['b_id'];
+        $tu_tanggal = $_POST['tu_tanggal'];
+        $tu_setor = $_POST['tu_setor'];
+
+        mysqli_query($db, "INSERT INTO transaksi_user (u_id, b_id,  tu_tanggal, tu_setor) VALUES ('$u_id', '$b_id',  '$tu_tanggal', '$tu_setor')");
+        $status = mysqli_affected_rows($db);
+        dbclose();
+        return $status;
+    }
+
     function console_log( $data ){
         echo '<script>';
         echo 'console.log('. json_encode( $data ) .')';
