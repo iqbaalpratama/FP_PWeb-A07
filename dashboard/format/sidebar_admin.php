@@ -3,7 +3,8 @@
 				<nav>
 					<ul class="nav">
 						<!-- dashboard -->
-						<li><a href="../pengguna/staff.php" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<li><a href="../pengguna/index.php" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<li><a href="../pengguna/staff.php" class="active"><i class="lnr lnr-home"></i> <span>Staff</span></a></li>
 						<!-- view user  -->
 						<li><a href="../pengguna/user.php" class=""><i class="lnr lnr-code"></i> <span>Daftar User</span></a></li>
 						<!-- view pengepul -->

@@ -1,6 +1,6 @@
 <?php
 
-    $db = mysqli_connect("localhost", "root", "", "banksampah");
+    $db = mysqli_connect("localhost", "root", "", "bank_sampah");
     if( !$db ) {
         die("Gagal terhubung dengan database: " . mysqli_connect_error());
     }
@@ -54,6 +54,44 @@
         return $status;
     }
 
+    function updatePengepul($request) {
+        global $db;
+        console_log('update pengepul');
+        $p_id = $_POST['p_id'];
+        $p_username = $_POST['p_username'];
+        $p_alamat = $_POST['p_alamat'];
+        $p_telepon = $_POST['p_telepon'];
+        
+        mysqli_query($db, "UPDATE pengepul SET p_username = '$p_username', p_alamat = '$p_alamat', p_telepon = '$p_telepon' WHERE p_id = '$p_id'");
+        $status = mysqli_affected_rows($db);
+        dbclose();
+        return $status;
+    }
+
+    function createPengepul($request) {
+        global $db;
+        console_log('create pengepul');
+        $p_username = $_POST['p_username'];
+        $p_alamat = $_POST['p_alamat'];
+        $p_telepon = $_POST['p_telepon'];
+        
+        mysqli_query($db, "INSERT INTO pengepul (p_username, p_alamat, p_telepon) VALUES ('$p_username', '$p_alamat', '$p_telepon')");
+        $status = mysqli_affected_rows($db);
+        dbclose();
+        return $status;
+    }
+
+    function deletePengepul($request) {
+        global $db;
+
+        $p_id = $_POST['p_id'];
+        
+        mysqli_query($db, "DELETE FROM pengepul WHERE p_id = '$p_id'");
+        $status = mysqli_affected_rows($db);
+        dbclose();
+        return $status;
+    }
+
     function getAllPengepul($query){
         global $db;
         $allpengepul = mysqli_query($db, $query);
@@ -69,9 +107,16 @@
 
         return $alluser;
     }
+
+    function console_log( $data ){
+        echo '<script>';
+        echo 'console.log('. json_encode( $data ) .')';
+        echo '</script>';
+    }
+      
     
     function dbClose() {
-        mysqli_close(mysqli_connect("localhost", "root", "", "banksampah"));
+        mysqli_close(mysqli_connect("localhost", "root", "", "bank_sampah"));
     }   
 
 
