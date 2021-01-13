@@ -63,7 +63,7 @@
 						<li><a href="index.php" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
 						<!--  view transaksi user -->
 						<li><a href="transaksi/view_transaksi_user.php" class=""><i class="lnr lnr-alarm"></i> <span>Transaksi User</span></a></li>
-						
+
 					</ul>
 				</nav>
 			</div>

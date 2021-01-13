@@ -4,7 +4,7 @@
     $arr = loginStaff(isset($_POST['Submit']));
     if(mysqli_num_rows($arr) == 1){
         $arr2 = mysqli_fetch_array($arr);
-        $_SESSION["id"]=$arr2[0]["id"];
+        $_SESSION["id"]=$arr2[0]["s_id"];
         $_SESSION["username"] = true;
         $_SESSION["role"] = "Staff";
         header('Location: ../../dashboard/index.php');

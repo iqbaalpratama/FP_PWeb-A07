@@ -41,8 +41,8 @@
 													<th>Nama Staf</th>
 													<th>Tanggal Transaksi</th>
 													<th>Total Setor</th>
-													<th>delete</th>
-													<th>update</th>
+													<th>Hapus</th>
+													<th>Edit</th>
 												</tr>
 											</thead>
 										<tbody>
@@ -60,13 +60,13 @@
 										<td>
 											<form method='POST' action='../../controller/dashboard/deleteFunctionTransaksiUser.php'>
 												<input name='tuid' value=<?php echo $transaksi['tu_id']; ?> hidden>
-												<button type='submit' class='btn btn-error'>
+												<button type='submit' class='btn btn-danger'>
 													<i class='fa fa-trash' aria-hidden='true'> Hapus</i>
 												</button>
 											</form>
 										</td>
 										<td>
-											<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalUpdate-<?php echo $transaksi['tu_id']; ?>">Edit </button>
+											<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalUpdate-<?php echo $transaksi['tu_id']; ?>">Edit </button>
 											<div class="modal fade" id="modalUpdate-<?php echo $transaksi['tu_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="modalUpdateLabel" aria-hidden="true">
 												<div class="modal-dialog" role="document">
 													<div class="modal-content">

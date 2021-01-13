@@ -62,7 +62,7 @@
 												<td><?php echo $staff['sam_stok']; ?></td>
 												<td><?php echo $staff['sam_hrg_beli']; ?></td>
 												<td>
-													<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalUpdate-<?php echo $staff['sam_id']; ?>">Edit</button>
+													<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalUpdate-<?php echo $staff['sam_id']; ?>">Edit</button>
 													<div class="modal fade" id="modalUpdate-<?php echo $staff['sam_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="modalUpdateLabel" aria-hidden="true">
 														<div class="modal-dialog" role="document">
 															<div class="modal-content">

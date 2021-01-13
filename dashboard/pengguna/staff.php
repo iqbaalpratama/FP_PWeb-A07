@@ -61,7 +61,7 @@
 												<td><?php echo $staff['s_alamat']; ?></td>
 												<td><?php echo $staff['s_telepon']; ?></td>
 												<td>
-													<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalUpdate-<?php echo $staff['s_id']; ?>">Edit Staff</button>
+													<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalUpdate-<?php echo $staff['s_id']; ?>">Edit Staff</button>
 													<div class="modal fade" id="modalUpdate-<?php echo $staff['s_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="modalUpdateLabel" aria-hidden="true">
 														<div class="modal-dialog" role="document">
 															<div class="modal-content">
@@ -137,7 +137,7 @@
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h5 class="modal-title" id="exampleModalLabel">Update</h5>
+														<h5 class="modal-title" id="exampleModalLabel">Tambah</h5>
 														<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 															<span aria-hidden="true">&times;</span>
 														</button>
