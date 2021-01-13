@@ -1,3 +1,4 @@
+
 		<div id="sidebar-nav" class="sidebar">
 			<div class="sidebar-scroll">
 				<nav>
@@ -32,7 +33,7 @@
 								}
 								else
 								{?>
-									<li><a href="../../dashboard_user/transaksi/admin_view_transaksi_pengepul.php" class=""><i class="lnr lnr-cog"></i> <span>Transaksi Pengepul</span></a></li>
+									<li><a href="../../dashboard_user/transaksi/admin_view_transaksi_pengepul.php"><i class="fas fa-shopping-cart"></i> <span>Transaksi Pengepul</span></a></li>
 								<?php
 								}
 							}
