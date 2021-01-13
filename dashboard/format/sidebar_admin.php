@@ -33,7 +33,7 @@
 								}
 								else
 								{?>
-									<li><a href="../../dashboard_user/transaksi/admin_view_transaksi_pengepul.php"><i class="fas fa-shopping-cart"></i> <span>Transaksi Pengepul</span></a></li>
+									<li><a href="../../dashboard_user/transaksi/view_transaksi_user.php"><i class="fas fa-shopping-cart"></i> <span>Transaksi User</span></a></li>
 								<?php
 								}
 							}
