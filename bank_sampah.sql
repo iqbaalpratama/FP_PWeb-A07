@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2021 at 06:42 PM
+-- Generation Time: Jan 13, 2021 at 08:20 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `banksampah`
+-- Database: `bank_sampah`
 --
 
 -- --------------------------------------------------------
@@ -198,12 +198,13 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`s_id`, `b_id`, `s_nama`, `s_password`, `s_alamat`, `s_telepon`) VALUES
-(1, 1, 'berto', 'cb0b4891e61ccdd415a20252001fc265', 'mulyerejo', '08666666626'),
+(1, 2, 'berto', 'cb0b4891e61ccdd415a20252001fc265', 'mulyerejo', '08666666626'),
 (2, 2, 'bambang', 'a9711cbb2e3c2d5fc97a63e45bbe5076', 'KTT', '08765567765'),
 (3, 5, 'sigit', '223a0fa8f15933d622b3c7a13f186027', '', '0812332112'),
 (4, 6, 'bolang', '245a22c51827ae189dbf2c854cb159cb', 'semolowaru', '08978978978'),
 (5, 3, 'ruslan', '01e20b61d05bb6b42840997233579e08', 'gebang', '086876876'),
-(6, 4, 'purnomo', '7392ed5e575dc6fb7b4c98422673be72', '', '08473645473');
+(6, 4, 'purnomo', '7392ed5e575dc6fb7b4c98422673be72', '', '08473645473'),
+(7, 2, 'tadi', NULL, 'ktt 1', '0890890890890');
 
 -- --------------------------------------------------------
 
@@ -399,7 +400,7 @@ ALTER TABLE `sampah`
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `transaksi_pengepul`
@@ -427,42 +428,42 @@ ALTER TABLE `users`
 -- Constraints for table `cabang_bank`
 --
 ALTER TABLE `cabang_bank`
-  ADD CONSTRAINT `cabang_bank_ibfk_1` FOREIGN KEY (`k_id`) REFERENCES `kelurahan` (`k_id`);
+  ADD CONSTRAINT `cabang_bank_ibfk_1` FOREIGN KEY (`k_id`) REFERENCES `kelurahan` (`k_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `detail_transaksi_pengepul`
 --
 ALTER TABLE `detail_transaksi_pengepul`
-  ADD CONSTRAINT `detail_transaksi_pengepul_ibfk_1` FOREIGN KEY (`tp_id`) REFERENCES `transaksi_pengepul` (`tp_id`),
-  ADD CONSTRAINT `detail_transaksi_pengepul_ibfk_2` FOREIGN KEY (`sam_id`) REFERENCES `sampah` (`sam_id`);
+  ADD CONSTRAINT `detail_transaksi_pengepul_ibfk_1` FOREIGN KEY (`tp_id`) REFERENCES `transaksi_pengepul` (`tp_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `detail_transaksi_pengepul_ibfk_2` FOREIGN KEY (`sam_id`) REFERENCES `sampah` (`sam_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `detail_transaksi_user`
 --
 ALTER TABLE `detail_transaksi_user`
-  ADD CONSTRAINT `detail_transaksi_user_ibfk_1` FOREIGN KEY (`tu_id`) REFERENCES `transaksi_user` (`tu_id`),
-  ADD CONSTRAINT `detail_transaksi_user_ibfk_2` FOREIGN KEY (`sam_id`) REFERENCES `sampah` (`sam_id`);
+  ADD CONSTRAINT `detail_transaksi_user_ibfk_1` FOREIGN KEY (`tu_id`) REFERENCES `transaksi_user` (`tu_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `detail_transaksi_user_ibfk_2` FOREIGN KEY (`sam_id`) REFERENCES `sampah` (`sam_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `staff`
 --
 ALTER TABLE `staff`
-  ADD CONSTRAINT `staff_ibfk_1` FOREIGN KEY (`b_id`) REFERENCES `cabang_bank` (`b_id`);
+  ADD CONSTRAINT `staff_ibfk_1` FOREIGN KEY (`b_id`) REFERENCES `cabang_bank` (`b_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `transaksi_pengepul`
 --
 ALTER TABLE `transaksi_pengepul`
-  ADD CONSTRAINT `transaksi_pengepul_ibfk_1` FOREIGN KEY (`p_id`) REFERENCES `pengepul` (`p_id`),
-  ADD CONSTRAINT `transaksi_pengepul_ibfk_2` FOREIGN KEY (`s_id`) REFERENCES `staff` (`s_id`);
+  ADD CONSTRAINT `transaksi_pengepul_ibfk_1` FOREIGN KEY (`p_id`) REFERENCES `pengepul` (`p_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `transaksi_pengepul_ibfk_2` FOREIGN KEY (`s_id`) REFERENCES `staff` (`s_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `transaksi_user`
 --
 ALTER TABLE `transaksi_user`
-  ADD CONSTRAINT `transaksi_user_ibfk_1` FOREIGN KEY (`b_id`) REFERENCES `cabang_bank` (`b_id`),
-  ADD CONSTRAINT `transaksi_user_ibfk_2` FOREIGN KEY (`s_id`) REFERENCES `staff` (`s_id`),
-  ADD CONSTRAINT `transaksi_user_ibfk_3` FOREIGN KEY (`u_id`) REFERENCES `users` (`u_id`);
+  ADD CONSTRAINT `transaksi_user_ibfk_1` FOREIGN KEY (`b_id`) REFERENCES `cabang_bank` (`b_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `transaksi_user_ibfk_2` FOREIGN KEY (`s_id`) REFERENCES `staff` (`s_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `transaksi_user_ibfk_3` FOREIGN KEY (`u_id`) REFERENCES `users` (`u_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
