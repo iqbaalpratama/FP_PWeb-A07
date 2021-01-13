@@ -2,7 +2,7 @@
 <html lang="en" class="fullscreen-bg">
 
 <head>
-	<title>Register | Klorofil - Free Bootstrap Dashboard Template</title>
+	<title>Register User</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -40,6 +40,7 @@
 					<div class="left">
 						<div class="content leftContainer">
 							<div class="header">
+							<div class="logo text-center"><img src="../../assets/img/Bank.png" alt="Klorofil Logo"></div>
 								<p class="lead">Registering account</p>
 							</div>
 							<form class="form-auth-big" action="../../controller/auth/registerUsers.php" method="post" onsubmit="return validate(this)" enctype="multipart/form-data">
