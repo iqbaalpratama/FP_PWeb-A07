@@ -58,7 +58,7 @@
 												<td><?php echo $staff['u_alamat']; ?></td>
 												<td><?php echo $staff['u_telp']; ?></td>
 												<td>
-													<img src="<?php echo $staff['u_foto']; ?>"/>
+													<img  style="width: 100%; height: auto;" src="../../assets/upload/<?php echo $staff['u_foto'];?>"/>
 												</td>
 											</tr>
 										<?php

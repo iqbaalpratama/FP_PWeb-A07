@@ -8,7 +8,7 @@
         $_SESSION["username"] = true;
         $_SESSION["role"] = "Users";
         $_SESSION["sukses"] = "Sukses melakukan login";
-        header('Location: ../../dashboard_user/index.php');
+        header('Location: ../../dashboard_user/transaksi/view_transaksi_user.php');
     }else {
         $_SESSION["gagal"] = "Gagal melakukan login";
         header('Location: ../../dashboard/auth/login-user.php');

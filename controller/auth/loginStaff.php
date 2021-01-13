@@ -7,7 +7,7 @@
         $_SESSION["id"]=$arr2[0]["s_id"];
         $_SESSION["username"] = true;
         $_SESSION["role"] = "Staff";
-        header('Location: ../../dashboard/index.php');
+        header('Location: ../../dashboard/pengguna/staff.php');
     }else {
         $_SESSION["gagal"] = "Gagal melakukan login";
         header('Location: ../../dashboard/auth/login-staff.html');

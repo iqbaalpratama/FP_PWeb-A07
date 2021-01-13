@@ -159,7 +159,7 @@
 
     function updateTransaksiUser($request){
         global $db;
-        
+
 
         $tuid = $_POST['id_trans'];
         $uid = $_POST['id_user'];
@@ -167,7 +167,7 @@
         $sid = $_POST['id_staf'];
         $tanggal = $_POST['Tanggal'];
         $setor = $_POST['Setor'];
-        
+
 
         mysqli_query($db, "UPDATE transaksi_user SET  u_id = '$uid', s_id = '$sid', tu_tanggal = '$tanggal' , tu_setor = '$setor' WHERE tu_id = '$tuid'");
         $status = mysqli_affected_rows($db);
@@ -191,16 +191,16 @@
         dbclose();
         return $status;
     }
-    
+
     function createTransaksiUser($request) {
         global $db;
 
         $u_id = $_POST['u_id'];
-        $b_id = $_POST['b_id'];
+        $b_id = $_POST['bank'];
         $tu_tanggal = $_POST['tu_tanggal'];
         $tu_setor = $_POST['tu_setor'];
 
-        mysqli_query($db, "INSERT INTO transaksi_user (u_id, b_id,  tu_tanggal, tu_setor) VALUES ('$u_id', '$b_id',  '$tu_tanggal', '$tu_setor')");
+        mysqli_query($db, "INSERT INTO transaksi_user (u_id, b_id, tu_tanggal, tu_setor) VALUES ('$u_id', '$b_id', '$tu_tanggal', '$tu_setor')");
         $status = mysqli_affected_rows($db);
         dbclose();
         return $status;
