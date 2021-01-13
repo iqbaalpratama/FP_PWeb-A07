@@ -1,14 +1,17 @@
 <?php
     include 'dbConnection.php';
     session_start();
-
-    if(mysqli_num_rows(loginUsers(isset($_POST['Submit']))) == 1){
+    $arr = loginUsers(isset($_POST['Submit']));
+    if(mysqli_num_rows($arr) == 1){
+        $arr2 = mysqli_fetch_array($arr);
+        $_SESSION["id"]=$arr2[0]["id"];
         $_SESSION["username"] = true;
         $_SESSION["role"] = "Users";
-        header('Location: ../../index.php');
+        $_SESSION["sukses"] = "Sukses melakukan login";
+        header('Location: ../../dashboard_user/index.php');
     }else {
         $_SESSION["gagal"] = "Gagal melakukan login";
-        header('Location: ../../dashboard/auth/page-register-users.php');
+        header('Location: ../../dashboard/auth/login-user.php');
     }
     exit();
 ?>
