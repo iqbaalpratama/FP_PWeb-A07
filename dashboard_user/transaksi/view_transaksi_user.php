@@ -43,10 +43,58 @@
 							<div class="">
 								<!-- TABLE HOVER -->
 								<div class="panel panel-headline">
+								<div style="flex: 1;">
+											<button type="button" class="btn btn-success" data-toggle="modal" data-target="#createModal">Tambah</button>
+											<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="modalCreateLabel" aria-hidden="true">
+												<div class="modal-dialog" role="document">
+													<div class="modal-content">
+														<div class="modal-header">
+															<h5 class="modal-title" id="exampleModalLabel">Update</h5>
+															<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																<span aria-hidden="true">&times;</span>
+															</button>
+														</div>
+														<form method="POST" action="../../controller/dashboard/createFunctionTransaksiUser.php">
+															<div class="modal-body">
+																<div class="input-group col-md-12" style="margin-top: 15px">
+																	<input class="form-control" type="text" name="u_id" id="u_id" placeholder="user ID">
+																</div>
+																<div class="input-group col-md-12" style="margin-top: 15px">
+																	<select class="form-control" name="bank" id="bank">
+																		<?php
+																			$all_bank = getAll("SELECT * FROM cabang_bank");
+																			while($bank = mysqli_fetch_array($all_bank)) {
+																		?>
+																			<option value="<?php echo $bank['b_id']?>"><?php echo $bank['b_nama']?></option>
+																		<?php
+																			}
+																		?>
+																	</select>
+																</div>
+																<div class="input-group col-md-12" style="margin-top: 15px">
+																	<input class="form-control" type="text" name="s_id" id="s_id" placeholder="staff ID">
+																</div>
+																<div class="input-group col-md-12" style="margin-top: 15px">
+																	<input class="form-control" type="date" name="tu_tanggal" id="tu_tanggal" placeholder="Tanggal Transaksi">
+																</div>
+																<div class="input-group col-md-12" style="margin-top: 15px">
+																	<input class="form-control" type="text" name="tu_setor" id="tu_setor" placeholder="jumlah setor">
+																</div>
+															</div>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+																<button class="btn btn-primary" type="submit">Save changes</button>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+										</div>
 									<div class="panel-heading">
 										<h3 class="panel-title">Daftar Transaksi</h3>
 									</div>
 									<div class="panel-body">
+									
 										<table class="table table-hover">
 											<thead>
 												<tr>
