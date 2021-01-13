@@ -144,13 +144,13 @@
 		else
 		{
             $_SESSION["gagal"] = "Belum punya role users";
-            header('Location: ../../dashboard/auth/page-login-users.php');
+            header('Location: ../../dashboard/auth/login-user.php');
 		}
 	}
 	else
 		{
             $_SESSION["gagal"] = "Belum melakukan login";
-            header('Location: ../../dashboard/auth/page-login-users.php');
+            header('Location: ../../dashboard/auth/login-user.php');
         }
 	?>
 	<?php require_once("../../dashboard/format/footer.php"); ?>
