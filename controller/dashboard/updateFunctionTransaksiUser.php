@@ -2,7 +2,7 @@
     include 'dbConnection.php';
     session_start();
 
-    if(updateGuest(isset($_POST['Update'])) > 0){
+    if(updateTransaksiUser(isset($_POST['Update'])) > 0){
         $_SESSION["sukses"] = "Transaksi berhasil diupdate";
     }else {
         $_SESSION["gagal"] = "Transaksi gagal diupdate";
