@@ -128,40 +128,35 @@
         return $status;
     }
 
-    function updateTransaksiUser($request){
+    function editSampah($request) {
         global $db;
 
+        $sam_id = $_POST['sam_id'];
+        $sam_nama = $_POST['sam_nama'];
+        $sam_satuan = $_POST['sam_satuan'];
+        $sam_hrg_jual = $_POST['sam_hrg_jual'];
+        $sam_hrg_beli = $_POST['sam_hrg_beli'];
 
-        $tuid = $_POST['id_trans'];
-        $uid = $_POST['id_user'];
-        $bid = $_POST['id_bank'];
-        $sid = $_POST['id_staf'];
-        $tanggal = $_POST['Tanggal'];
-        $setor = $_POST['Setor'];
-
-
-        mysqli_query($db, "UPDATE transaksi_user SET  u_id = '$uid', b_id = '$bid', s_id = '$sid', tu_tanggal = '$tanggal' , tu_setor = '$setor' WHERE tu_id = '$tuid'");
+        mysqli_query($db, "UPDATE sampah SET sam_nama = '$sam_nama', sam_satuan = '$sam_satuan', sam_hrg_jual = '$sam_hrg_jual', sam_hrg_beli = '$sam_hrg_beli' WHERE sam_id = '$sam_id'");
         $status = mysqli_affected_rows($db);
         dbclose();
         return $status;
     }
 
-    function updateTransaksiPengepul($request){
+    function createSampah($request) {
         global $db;
 
+        $sam_nama = $_POST['sam_nama'];
+        $sam_satuan = $_POST['sam_satuan'];
+        $sam_hrg_jual = $_POST['sam_hrg_jual'];
+        $sam_hrg_beli = $_POST['sam_hrg_beli'];
 
-        $tpid = $_POST['tp_id'];
-        $pid = $_POST['p_id'];
-        $sid = $_POST['id_staf'];
-        $tanggal = $_POST['Tanggal'];
-        $ambil = $_POST['Ambil'];
-
-
-        mysqli_query($db, "UPDATE transaksi_pengepul SET  p_id = '$pid', s_id = '$sid', tp_tanggal = '$tanggal' , tp_ambil = '$ambil' WHERE tp_id = '$tpid'");
+        mysqli_query($db, "INSERT INTO sampah (sam_nama, sam_satuan, sam_hrg_jual, sam_hrg_beli) VALUES ('$sam_nama', '$sam_satuan', '$sam_hrg_jual', '$sam_hrg_beli')");
         $status = mysqli_affected_rows($db);
         dbclose();
         return $status;
     }
+
     function console_log( $data ){
         echo '<script>';
         echo 'console.log('. json_encode( $data ) .')';
