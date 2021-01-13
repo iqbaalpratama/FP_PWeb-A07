@@ -107,6 +107,35 @@
         return $alluser;
     }
 
+    function editSampah($request) {
+        global $db;
+
+        $sam_id = $_POST['sam_id'];
+        $sam_nama = $_POST['sam_nama'];
+        $sam_satuan = $_POST['sam_satuan'];
+        $sam_hrg_jual = $_POST['sam_hrg_jual'];
+        $sam_hrg_beli = $_POST['sam_hrg_beli'];
+
+        mysqli_query($db, "UPDATE sampah SET sam_nama = '$sam_nama', sam_satuan = '$sam_satuan', sam_hrg_jual = '$sam_hrg_jual', sam_hrg_beli = '$sam_hrg_beli' WHERE sam_id = '$sam_id'");
+        $status = mysqli_affected_rows($db);
+        dbclose();
+        return $status;
+    }
+
+    function createSampah($request) {
+        global $db;
+
+        $sam_nama = $_POST['sam_nama'];
+        $sam_satuan = $_POST['sam_satuan'];
+        $sam_hrg_jual = $_POST['sam_hrg_jual'];
+        $sam_hrg_beli = $_POST['sam_hrg_beli'];
+
+        mysqli_query($db, "INSERT INTO sampah (sam_nama, sam_satuan, sam_hrg_jual, sam_hrg_beli) VALUES ('$sam_nama', '$sam_satuan', '$sam_hrg_jual', '$sam_hrg_beli')");
+        $status = mysqli_affected_rows($db);
+        dbclose();
+        return $status;
+    }
+
     function console_log( $data ){
         echo '<script>';
         echo 'console.log('. json_encode( $data ) .')';
