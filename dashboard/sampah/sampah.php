@@ -86,7 +86,7 @@
 																		<span aria-hidden="true">&times;</span>
 																	</button>
 																</div>
-																<form method="POST" action="../../controller/dashboard/pengguna/editStaff.php">
+																<form method="POST" action="../../controller/dashboard/sampah/editSampah.php">
 																	<div class="modal-body">
 																		<div class="input-group col-md-12" style="margin-top: 15px">
 																			<input class="form-control" type="text" name="sam_id" id="sam_id" value="<?php echo $staff['sam_id']; ?>">
@@ -95,13 +95,13 @@
 																			<input class="form-control" type="text" name="sam_nama" id="sam_nama" placeholder="nama" value="<?php echo $staff['sam_nama']; ?>">
 																		</div>
 																		<div class="input-group col-md-12" style="margin-top: 15px">
-																			<input class="form-control" type="text" name="sam_satuan" id="sam_satuan" placeholder="alamat" value="<?php echo $staff['sam_satuan']; ?>">
+																			<input class="form-control" type="text" name="sam_satuan" id="sam_satuan" placeholder="satuan" value="<?php echo $staff['sam_satuan']; ?>">
 																		</div>
 																		<div class="input-group col-md-12" style="margin-top: 15px">
-																			<input class="form-control" type="text" name="sam_hrg_jual" id="sam_hrg_jual" placeholder="telepon" value="<?php echo $staff['sam_hrg_jual']; ?>">
+																			<input class="form-control" type="text" name="sam_hrg_jual" id="sam_hrg_jual" placeholder="harga jual" value="<?php echo $staff['sam_hrg_jual']; ?>">
                                                                         </div>
                                                                         <div class="input-group col-md-12" style="margin-top: 15px">
-																			<input class="form-control" type="text" name="sam_hrg_beli" id="sam_hrg_beli" placeholder="telepon" value="<?php echo $staff['sam_hrg_beli']; ?>">
+																			<input class="form-control" type="text" name="sam_hrg_beli" id="sam_hrg_beli" placeholder="harga beli" value="<?php echo $staff['sam_hrg_beli']; ?>">
 																		</div>
 																	</div>
 																	<div class="modal-footer">
@@ -112,14 +112,6 @@
 															</div>
 														</div>
 													</div>
-												</td>
-												<td>
-													<form method="POST" action="../../controller/dashboard/pengguna/deleteStaff.php">
-														<div class="input-group">
-															<input class="form-control" type="text" name="s_id" id="s_id" value="<?php echo $staff['s_id']; ?>" style="display: none;">
-														</div>
-														<button class="btn btn-danger" type="submit">Delete Staff</button>
-													</form>
 												</td>
 											</tr>
 										<?php
@@ -138,19 +130,19 @@
 															<span aria-hidden="true">&times;</span>
 														</button>
 													</div>
-													<form method="POST" action="../../controller/dashboard/pengguna/createStaff.php">
+													<form method="POST" action="../../controller/dashboard/sampah/createSampah.php">
 														<div class="modal-body">
                                                             <div class="input-group col-md-12" style="margin-top: 15px">
                                                                 <input class="form-control" type="text" name="sam_nama" id="sam_nama" placeholder="nama">
                                                             </div>
                                                             <div class="input-group col-md-12" style="margin-top: 15px">
-                                                                <input class="form-control" type="text" name="sam_satuan" id="sam_satuan" placeholder="alamat">
+                                                                <input class="form-control" type="text" name="sam_satuan" id="sam_satuan" placeholder="satuan">
                                                             </div>
                                                             <div class="input-group col-md-12" style="margin-top: 15px">
-                                                                <input class="form-control" type="text" name="sam_hrg_jual" id="sam_hrg_jual" placeholder="telepon">
+                                                                <input class="form-control" type="text" name="sam_hrg_jual" id="sam_hrg_jual" placeholder="harga jual">
                                                             </div>
                                                             <div class="input-group col-md-12" style="margin-top: 15px">
-                                                                <input class="form-control" type="text" name="sam_hrg_beli" id="sam_hrg_beli" placeholder="telepon">
+                                                                <input class="form-control" type="text" name="sam_hrg_beli" id="sam_hrg_beli" placeholder="harga beli">
                                                             </div>
                                                         </div>
 														<div class="modal-footer">
