@@ -106,6 +106,27 @@
 
         return $alluser;
     }
+    function deleteTransaksiUser($request){
+        global $db;
+
+        $ids = $_POST['tuid'];
+
+        mysqli_query($db, "DELETE FROM transaksi_user WHERE tu_id = $ids");
+        $status = mysqli_affected_rows($db);
+        dbclose();
+        return $status;
+    }
+
+    function deleteTransaksiPengepul($request){
+        global $db;
+
+        $ids = $_POST['tpid'];
+
+        mysqli_query($db, "DELETE FROM transaksi_pengepul WHERE tp_id = $ids");
+        $status = mysqli_affected_rows($db);
+        dbclose();
+        return $status;
+    }
 
     function editSampah($request) {
         global $db;
