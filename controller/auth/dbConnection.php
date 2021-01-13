@@ -110,12 +110,12 @@
         global $db;
 
 
-        $tuid = $_POST['tu_id'];
-        $uid = $_POST['u_id'];
-        $bid = $_POST['b_id'];
-        $sid = $_POST['s_id'];
-        $tanggal = $_POST['tu_tanggal'];
-        $setor = $_POST['tu_setor'];
+        $tuid = $_POST['id_trans'];
+        $uid = $_POST['id_user'];
+        $bid = $_POST['id_bank'];
+        $sid = $_POST['id_staf'];
+        $tanggal = $_POST['Tanggal'];
+        $setor = $_POST['Setor'];
         
 
         mysqli_query($db, "UPDATE transaksi_user SET  u_id = '$uid', b_id = '$bid', s_id = '$sid', tu_tanggal = '$tanggal' , tu_setor = '$setor' WHERE tu_id = '$tuid'");
@@ -128,11 +128,11 @@
         global $db;
 
 
-        $tpid = $_POST['tp_id'];
-        $pid = $_POST['p_id'];
-        $sid = $_POST['s_id'];
-        $tanggal = $_POST['tp_tanggal'];
-        $ambil = $_POST['tp_ambil'];
+        $tpid = $_POST['id_trans'];
+        $pid = $_POST['id_pengepul'];
+        $sid = $_POST['id_staf'];
+        $tanggal = $_POST['Tanggal'];
+        $ambil = $_POST['Ambil'];
         
 
         mysqli_query($db, "UPDATE transaksi_pengepul SET  p_id = '$pid', s_id = '$sid', tp_tanggal = '$tanggal' , tp_ambil = '$ambil' WHERE tp_id = '$tpid'");

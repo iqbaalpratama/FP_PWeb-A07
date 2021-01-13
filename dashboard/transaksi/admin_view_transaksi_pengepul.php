@@ -75,13 +75,13 @@
 												<div class="modal-body">
 													<form action="../../controller/dashboard/updateFunctionTransaksiPengepul.php" method="POST">
 														<?php
-															$id = $transaksi['t.tp_id']; 
+															$id = $transaksi['tp_id']; 
 															$query_edit = getAllPengepul("SELECT * FROM transaksi_pengepul  where 'tp_id' ='$id'");
 															while ($user_edit= mysqli_fetch_array($query_edit)) 
 															{  
 														?>
 															<div class="content">
-																<input class="form-input" type="hidden" id="id" name="id" value="<?php echo $user_edit['tp_id']; ?>">
+																<input class="form-input" type="hidden" id="id_trans" name="id_trans" value="<?php echo $user_edit['tp_id']; ?>">
 																<div class="form-group">
 																	<div class="text-left"> 
 																		<label class="form-label" for="id_pengepul">ID Pengepul</label>

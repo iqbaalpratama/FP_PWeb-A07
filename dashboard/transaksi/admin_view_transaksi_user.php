@@ -63,7 +63,7 @@
 											<i class='fa fa-pencil' aria-hidden='true'> Update	
 											</i>
 										</a>
-										<div class="modal" id="modalUpdate-<?php echo $transaksi['t.tu_id'];?>">
+										<div class="modal" id="modalUpdate-<?php echo $transaksi['tu_id'];?>">
 											<a href="#close" class="modal-overlay" aria-label="Close">
 											</a>
 											<div class="modal-container">
@@ -74,18 +74,24 @@
 												<div class="modal-body">
 													<form action="../../controller/dashboard/updateFunctionTransaksiUser.php" method="POST">
 														<?php
-															$id = $transaksi['t.tu_id']; 
+															$id = $transaksi['tu_id']; 
 															$query_edit = getAllPengepul("SELECT * FROM transaksi_user  where 'tu_id' ='$id'");
 															while ($user_edit= mysqli_fetch_array($query_edit)) 
 															{  
 														?>
 															<div class="content">
-																<input class="form-input" type="hidden" id="id" name="id" value="<?php echo $user_edit['tp_id']; ?>">
+																<input class="form-input" type="hidden" id="id_trans" name="id_trans" value="<?php echo $user_edit['tu_id']; ?>">
 																<div class="form-group">
 																	<div class="text-left"> 
 																		<label class="form-label" for="id_user">ID User</label>
 																	</div>
 																	<input class="form-input" type="text" id="id_user" name="id_user" value="<?php echo $user_edit['u_id']; ?>"placeholder="ID User" required>
+																</div>
+																<div class="form-group">
+																	<div class="text-left"> 
+																		<label class="form-label" for="id_bank">ID Bank</label> 
+																	</div>
+																	<input class="form-input" type="text" id="id_bank" name="id_bank" value="<?php echo $user_edit['b_id']; ?>"placeholder="ID Bank" required>
 																</div>
 																<div class="form-group">
 																	<div class="text-left"> 
