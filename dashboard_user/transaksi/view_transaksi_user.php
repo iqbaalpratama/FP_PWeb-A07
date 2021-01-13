@@ -56,9 +56,8 @@
 														</div>
 														<form method="POST" action="../../controller/dashboard/createFunctionTransaksiUser.php">
 															<div class="modal-body">
-																<div class="input-group col-md-12" style="margin-top: 15px">
-																	<input class="form-control" type="text" name="u_id" id="u_id" placeholder="user ID">
-																</div>
+																<input type="text" name= "u_id" value="<?php echo $id ; ?>" hidden>
+																
 																<div class="input-group col-md-12" style="margin-top: 15px">
 																	<select class="form-control" name="bank" id="bank">
 																		<?php
@@ -70,9 +69,6 @@
 																			}
 																		?>
 																	</select>
-																</div>
-																<div class="input-group col-md-12" style="margin-top: 15px">
-																	<input class="form-control" type="text" name="s_id" id="s_id" placeholder="staff ID">
 																</div>
 																<div class="input-group col-md-12" style="margin-top: 15px">
 																	<input class="form-control" type="date" name="tu_tanggal" id="tu_tanggal" placeholder="Tanggal Transaksi">
