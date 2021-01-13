@@ -51,8 +51,18 @@
 									<input type="text" class="form-control" name="no_telp" placeholder="No Telepon">
                                 </div>
                                 <div class="form-group">
-									<label class="form-label" for="file">File Foto</label>
-                                    <input type="file" class="form-control" placeholder="Unggah foto (PNG,JPG,JPEG)" name="file" id="file" accept="image/png, image/jpg, image/jpeg">
+                                    <label class="form-label" for="file">File Foto</label>
+                                    <select name="bank_id" id="bank_id"></select>
+                                    <?php
+                                        include "../../controller/auth/dbConnection.php";
+                                        global $db;
+                                        $query=mysqli_query($db,"SELECT * FROM cabang_bank");
+                                        while($row=mysqli_fetch_array($query)){
+                                    ?>
+                                        <option value="<?php $row['id'];?>"><?php echo $row['nama'];?></option>
+                                    <?php
+                                        }
+                                    ?>
 								</div>
 								<button type="submit" class="btn btn-primary btn-lg btn-block">REGISTER</button>
 							</form>

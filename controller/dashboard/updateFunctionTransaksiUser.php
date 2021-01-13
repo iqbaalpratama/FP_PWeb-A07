@@ -8,6 +8,6 @@
         $_SESSION["gagal"] = "Transaksi gagal diupdate";
     }
 
-    header('Location: ../../dashboard/transaksi/admin_view_transaksi_pengepul.php');
+    header('Location: ../../dashboard/transaksi/admin_view_transaksi_user.php');
     exit();
 ?>
