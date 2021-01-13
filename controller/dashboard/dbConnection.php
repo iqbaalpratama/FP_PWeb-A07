@@ -150,8 +150,8 @@
         global $db;
 
 
-        $tpid = $_POST['id_trans'];
-        $pid = $_POST['id_pengepul'];
+        $tpid = $_POST['tp_id'];
+        $pid = $_POST['p_id'];
         $sid = $_POST['id_staf'];
         $tanggal = $_POST['Tanggal'];
         $ambil = $_POST['Ambil'];

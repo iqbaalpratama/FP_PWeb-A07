@@ -1,6 +1,6 @@
 <?php
 	require '../../controller/dashboard/dbConnection.php';
-	$all_TransaksiPengepul = getAllPengepul("SELECT t.tp_id, p.p_username, s.s_nama, t.tp_tanggal, t.tp_ambil FROM transaksi_pengepul t, pengepul p, staff s where p.p_id = t.p_id AND t.s_id = s.s_id ORDER BY t.tp_id");
+	$all_TransaksiPengepul = getAllPengepul("SELECT p.p_id, t.tp_id, p.p_username, s.s_id, s.s_nama, t.tp_tanggal, t.tp_ambil FROM transaksi_pengepul t, pengepul p, staff s where p.p_id = t.p_id AND t.s_id = s.s_id ORDER BY t.tp_id");
 ?>
 
 <?php require_once("../format/head_format_start.php"); ?>
@@ -39,8 +39,8 @@
 												<th>Nama Staf</th>
 												<th>Tanggal Transaksi</th>
 												<th>Total Ambil</th>
-												<th>Edit</th>
 												<th>Hapus</th>
+												<th>Edit</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -55,70 +55,52 @@
 										<td><?php echo $transaksi['s_nama']; ?></td>
 										<td><?php echo $transaksi['tp_tanggal']; ?></td>
 										<td><?php echo $transaksi['tp_ambil']; ?></td>
+										<td>
 										<form method='POST' action='../../controller/dashboard/deleteFunctionTransaksiPengepul.php'>
 											<input name='tpid' value=<?php echo $transaksi['tp_id']; ?> hidden>
-											<td><button type='submit' class='btn btn-error'>
+											<button type='submit' class='btn btn-error'>
 												<i class='fa fa-trash' aria-hidden='true'> Hapus</i>
-											</button></td>
+											</button>
 										</form>
-										<td class='tableItem'>
-										<a class="btn btn btn-primary" href="#modalUpdate-<?php echo $transaksi['tp_id'];?>">
-											<i class='fa fa-pencil' aria-hidden='true'> Update
-											</i>
-										</a>
-										<div class="modal" id="modalUpdate-<?php echo $transaksi['tp_id'];?>">
-											<a href="#close" class="modal-overlay" aria-label="Close">
-											</a>
-											<div class="modal-container">
-												<div class="modal-header">
-													<a href="#close" class="btn btn-clear float-right" aria-label="Close"></a>
-													<div class="modal-title h5">Update Data </div>
-												</div>
-												<div class="modal-body">
-													<form action="../../controller/dashboard/updateFunctionTransaksiPengepul.php" method="POST">
-														<?php
-															$id = $transaksi['tp_id'];
-															$query_edit = getAllPengepul("SELECT * FROM transaksi_pengepul  where 'tp_id' ='$id'");
-															while ($user_edit= mysqli_fetch_array($query_edit))
-															{
-														?>
-															<div class="content">
-																<input class="form-input" type="hidden" id="id_trans" name="id_trans" value="<?php echo $user_edit['tp_id']; ?>">
-																<div class="form-group">
-																	<div class="text-left">
-																		<label class="form-label" for="id_pengepul">ID Pengepul</label>
-																	</div>
-																	<input class="form-input" type="text" id="id_pengepul" name="id_pengepul" value="<?php echo $user_edit['p_id']; ?>"placeholder="ID Pengepul" required>
+										</td>
+										<td>
+											<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalUpdate-<?php echo $transaksi['tp_id']; ?>">Edit </button>
+											<div class="modal fade" id="modalUpdate-<?php echo $transaksi['tp_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="modalUpdateLabel" aria-hidden="true">
+												<div class="modal-dialog" role="document">
+													<div class="modal-content">
+														<div class="modal-header">
+															<h5 class="modal-title" id="exampleModalLabel">Update</h5>
+															<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																<span aria-hidden="true">&times;</span>
+															</button>
+														</div>
+														<form method="POST" action="../../controller/dashboard/updateFunctionTransaksiPengepul.php">
+															<div class="modal-body">
+																<div class="input-group col-md-12" style="margin-top: 15px">
+																	<input class="form-control" type="text" name="tp_id" id="tp_id" value="<?php echo $transaksi['tp_id']; ?>">
 																</div>
-																<div class="form-group">
-																	<div class="text-left">
-																		<label class="form-label" for="id_staf">ID Staf</label>
-																	</div>
-																	<input class="form-input" type="text" id="id_staf" name="id_staf" value="<?php echo $user_edit['s_id']; ?>"placeholder="ID Staf" required>
+																<div class="input-group col-md-12" style="margin-top: 15px">
+																	<input class="form-control" type="text" name="p_id" id="p_id" value="<?php echo $transaksi['p_id']; ?>">
 																</div>
-																<div class="form-group">
-																	<div class="text-left">
-																		<label class="form-label" for="Tanggal">Tanggal Transaksi</label>
-																	</div>
-																	<input class="form-input" type="date" id="Tanggal" name="Tanggal" value="<?php echo $user_edit['tp_tanggal']; ?>"placeholder="Tanggal Transaksi" required>
+																<div class="input-group col-md-12" style="margin-top: 15px">
+																	<input class="form-control" type="text" name="id_staf" id="id_staf" placeholder="ID Staff" value="<?php echo $transaksi['s_id']; ?>">
 																</div>
-																<div class="form-group">
-																	<div class="text-left">
-																		<label class="form-label" for="Ambil">Jumlah Ambil</label>
-																	</div>
-																	<input class="form-input" type="text" id="Ambil" name="Ambil" value="<?php echo $user_edit['tp_ambil']; ?>"placeholder="Jumlah Ambil" required>
+																<div class="input-group col-md-12" style="margin-top: 15px">
+																	<input class="form-control" type="date" name="Tanggal" id="Tanggal" placeholder="Tanggal Transaksi" value="<?php echo $transaksi['tp_tanggal']; ?>">
+																</div>
+																<div class="input-group col-md-12" style="margin-top: 15px">
+																	<input class="form-control" type="text" name="Ambil" id="Ambil" placeholder="Total Ambil" value="<?php echo $transaksi['tp_ambil']; ?>">
 																</div>
 															</div>
 															<div class="modal-footer">
-																<button type="submit" class="btn btn-primary">Update</button>
+																<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+																<button class="btn btn-primary" type="submit">Save changes</button>
 															</div>
-														<?php
-															}
-														?>
-													</form>
+														</form>
+													</div>
 												</div>
 											</div>
-										</div>
+										</td>
 									</tr>
 									<?php
 										}
