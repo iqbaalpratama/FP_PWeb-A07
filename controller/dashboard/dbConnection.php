@@ -1,6 +1,6 @@
 <?php
 
-    $db = mysqli_connect("localhost", "root", "", "bank_sampah");
+    $db = mysqli_connect("localhost", "root", "", "banksampah");
     if( !$db ) {
         die("Gagal terhubung dengan database: " . mysqli_connect_error());
     }
@@ -9,7 +9,7 @@
         global $db;
         $all_staff = mysqli_query($db, $query);
 
-        dbclose();
+        dbClose();
         return $all_staff;
     }
 
@@ -54,8 +54,25 @@
         return $status;
     }
 
+    function getAllPengepul($query){
+        global $db;
+        $allpengepul = mysqli_query($db, $query);
+        dbClose();
+
+        return $allpengepul;
+    }
+
+    function getAllUsers($query){
+        global $db;
+        $alluser = mysqli_query($db, $query);
+        dbClose();
+
+        return $alluser;
+    }
+    
     function dbClose() {
-        mysqli_close(mysqli_connect("localhost", "root", "", "bank_sampah"));
+        mysqli_close(mysqli_connect("localhost", "root", "", "banksampah"));
     }   
+
 
 ?>
