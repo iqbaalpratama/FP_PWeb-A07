@@ -1,5 +1,5 @@
 <?php
-    include 'dbconnection.php';
+    include '../auth/dbConnection.php';
     session_start();
 
     if(deleteTransaksiUser(isset($_POST['Submit'])) > 0){
