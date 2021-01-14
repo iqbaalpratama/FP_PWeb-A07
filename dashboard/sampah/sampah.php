@@ -45,8 +45,9 @@
 												<th>Nama Sampah</th>
 												<th>Satuan</th>
 												<th>Harga Jual</th>
+												<th>Sampah Stok</th>
 												<th>Harga Beli</th>
-                                                <th>Sampah Stok</th>
+                                                
                                                 <th>Edit</th>
 											</tr>
 										</thead>
